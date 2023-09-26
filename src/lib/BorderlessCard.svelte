@@ -5,7 +5,7 @@
 
 <div class="noborder-card">
 	<!-- TODO: improve alt -->
-	<div style="mask-image: url({iconUrl})" />
+	<div style="mask-image: url({iconUrl}); -webkit-mask-image: url({iconUrl})" />
 	<h2>{title}</h2>
 	<p><slot /></p>
 </div>
