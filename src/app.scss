@@ -1,0 +1,134 @@
+:root {
+	--color-icon: #2283f1;
+
+	--color-background: #fff;
+	--color-background--card: #deedfd;
+	--color-background--footer: #004cbb;
+	--color-background--nav: rgba(255, 255, 255, 0.8);
+
+	--color-text: #000;
+	--color-text--body: #444;
+	--color-text--accent: #2283f1;
+	--color-text--accent-contrast: #5b9ce4;
+	--color-text--footer: #ddd;
+
+	--font-xl: 6rem;
+	--font-lg: 2rem;
+	--font-md: 1.125rem;
+	--font-sm: 1rem;
+	--font--scroller: 5rem;
+
+	--spacing-xl: 5rem;
+	--spacing-lg: 2rem;
+	--spacing-md: 1rem;
+	--spacing-sm: 0.5rem;
+	--spacing--page-x: 3rem;
+
+	--border-round: 100%;
+	--border-lg: 1rem;
+	--border-sm: 0.5rem;
+
+	--size--max-width: min(60rem, 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-background: #0e0e0e;
+		--color-background--card: #122b46;
+		--color-background--nav: rgba(0, 0, 0, 0.5);
+
+		--color-text: #fff;
+		--color-text--body: #ddd;
+		--color-text--accent-contrast: #6b9cd3;
+	}
+}
+
+::selection {
+	background-color: var(--color-text--accent);
+	color: var(--color-background);
+}
+
+body {
+	background-color: var(--color-background);
+
+	font-family: Outfit, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+		Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-size: var(--font-md);
+	color: var(--color-text);
+}
+
+nav {
+	position: sticky;
+	top: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	padding: 0.75rem;
+
+	background-color: var(--color-background--nav);
+	backdrop-filter: blur(4px);
+
+	font-size: var(--font-sm);
+
+	z-index: 5;
+
+	.nav-links {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-sm);
+	}
+
+	.nav-highlight {
+		color: var(--color-background) !important;
+		background-color: var(--color-text);
+		padding: 0.25rem 1rem;
+		border-radius: 999px;
+
+		transition: opacity 0.15s;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+}
+
+@media (width < 400px) {
+	nav {
+		flex-direction: column;
+	}
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xl);
+
+	margin: 0 var(--spacing--page-x);
+}
+
+summary {
+	cursor: pointer;
+}
+
+h1 {
+	font-size: var(--font-xl);
+	line-height: 115%;
+}
+
+p {
+	max-width: 60ch;
+}
+
+a,
+a:active,
+a:hover,
+a:visited,
+a:focus {
+	color: inherit;
+	text-decoration: none;
+}
+
+.accent {
+	color: var(--color-text--accent);
+}
