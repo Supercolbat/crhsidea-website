@@ -491,6 +491,9 @@
 
 				color: var(--color-text--accent-contrast);
 
+				user-select: none;
+				-webkit-user-select: none;
+
 				&::marker {
 					content: '';
 				}
