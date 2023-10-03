@@ -251,12 +251,10 @@
 		align-items: center;
 		gap: var(--spacing--page-x);
 
-		height: 85vh;
-
 		margin-left: var(--spacing--page-x);
 		margin-bottom: var(--spacing-xl);
 
-		overflow: hidden;
+		overflow-x: hidden;
 
 		p {
 			color: var(--color-text--body);
