@@ -73,6 +73,13 @@
 		}
 	}
 
+	@media (width < 380px) {
+		.footer-container > div {
+			flex-direction: column;
+			gap: var(--spacing-lg);
+		}
+	}
+
 	.footer-nav {
 		display: flex;
 		gap: var(--spacing-lg);

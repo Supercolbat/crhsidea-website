@@ -15,8 +15,6 @@
 	 * Variables for the scroller animation
 	 */
 	let nav: HTMLElement;
-	let header: HTMLElement;
-	let headerImage: HTMLImageElement;
 
 	/* Scrolling animation */
 	const progressPadding = 0.05;
@@ -54,8 +52,6 @@
 	}
 
 	function resizeEvent() {
-		header.style.height = window.innerHeight - nav.offsetHeight + 'px';
-
 		canvasWidth = canvas ? canvas.offsetWidth : 0;
 		phoneWidth = phone ? phone.width : 0;
 
@@ -66,9 +62,6 @@
 	onMount(() => {
 		/* Detect JavaScript */
 		javascriptEnabled = true;
-
-		/* Remove maxHeight when JavaScript is enabled */
-		headerImage.style.maxHeight = 'initial';
 
 		/* Update on window resize */
 		addEventListener('resize', resizeEvent);
@@ -93,7 +86,7 @@
 	</div>
 </nav>
 
-<header bind:this={header}>
+<header>
 	<div class="header-body">
 		<h1>Go beyond<br /><span class="accent">CompSci.</span></h1>
 		<p>
@@ -107,13 +100,7 @@
 			<a href="https://github.com/crhsidea">Github</a>
 		</div>
 	</div>
-	<img
-		bind:this={headerImage}
-		class="header-image"
-		src="/assets/texture.svg"
-		alt="Patterned image"
-		aria-hidden="true"
-	/>
+	<img class="header-image" src="/assets/texture.svg" alt="Patterned image" aria-hidden="true" />
 </header>
 
 <main>
@@ -209,13 +196,13 @@
 			need help with the material.
 		</p>
 		<div class="tutoring-container">
-			<BorderlessCard title="Java" iconUrl="/assets/java.svg">
+			<BorderlessCard title="Java">
 				Java is taught in higher level CS classes to introduce more advanced topics.
 			</BorderlessCard>
-			<BorderlessCard title="Python" iconUrl="/assets/python.svg">
+			<BorderlessCard title="Python">
 				Python is commonly taught to people just being introduced to programming.
 			</BorderlessCard>
-			<BorderlessCard title="Dart" iconUrl="/assets/dart.svg">
+			<BorderlessCard title="Dart">
 				Dart is the language of the Flutter framework, which we use for hackathons.
 			</BorderlessCard>
 		</div>
@@ -264,10 +251,12 @@
 		align-items: center;
 		gap: var(--spacing--page-x);
 
+		height: 85vh;
+
 		margin-left: var(--spacing--page-x);
 		margin-bottom: var(--spacing-xl);
 
-		overflow-x: hidden;
+		overflow: hidden;
 
 		p {
 			color: var(--color-text--body);
@@ -279,27 +268,34 @@
 
 		.header-image {
 			height: 100%;
-
-			// Disabled when JavaScript is enabled
 			max-height: 85vh;
+
+			border-radius: var(--border-lg) 0 0 var(--border-lg);
 		}
 	}
 
 	@media (width < 760px) {
 		.header-body {
-			margin-right: var(--spacing--page-x);
+			margin-right: var(--spacing--page-x) !important;
 		}
 
 		.header-image {
-			display: none;
+			display: none !important;
 		}
 	}
 
-	@media (width < 512px) {
+	@media (width < 550px) {
 		:root {
-			--font-xl: 4rem;
-			--font--scroller: 3rem;
-			--spacing--page-x: 1rem;
+			--font-xl: 4rem !important;
+			--font--scroller: 3rem !important;
+			--spacing--page-x: 1rem !important;
+		}
+	}
+
+	@media (width < 311px) {
+		:root {
+			--font-xl: 3rem !important;
+			--font--scroller: var(--font-lg) !important;
 		}
 	}
 
@@ -370,8 +366,8 @@
 			justify-content: center;
 			align-items: center;
 
-			height: 100dvh;
 			height: 100vh;
+			height: 100dvh;
 
 			& > div {
 				display: flex;
@@ -445,7 +441,7 @@
 
 	@media (width < 800px) {
 		.cards-top {
-			flex-direction: column;
+			flex-direction: column !important;
 		}
 	}
 
@@ -458,12 +454,13 @@
 
 	@media (width < 850px) {
 		.hackathons img {
-			width: var(--size--max-width);
+			width: var(--size--max-width) !important;
 		}
 	}
 
 	.tutoring-container {
 		display: flex;
+		justify-content: center;
 		flex-wrap: wrap;
 		gap: var(--spacing-lg);
 
@@ -503,7 +500,11 @@
 
 					display: inline-flex;
 
+					height: min-content;
+					aspect-ratio: 1/1;
+
 					transition: transform 0.15s;
+
 					will-change: transform;
 				}
 			}
@@ -519,7 +520,7 @@
 
 	@media (prefers-color-scheme: dark) {
 		details {
-			color: var(--color-text--body);
+			color: var(--color-text--body) !important;
 		}
 
 		summary::before {

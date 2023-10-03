@@ -1,11 +1,8 @@
 <script lang="ts">
-	export let iconUrl: string;
 	export let title: string;
 </script>
 
 <div class="noborder-card">
-	<!-- TODO: improve alt -->
-	<div style="mask-image: url({iconUrl}); -webkit-mask-image: url({iconUrl})" />
 	<h2>{title}</h2>
 	<p><slot /></p>
 </div>
@@ -33,6 +30,12 @@
 		p {
 			min-width: 12rem;
 			color: var(--color-text);
+		}
+	}
+
+	@media (width < 448px) {
+		.noborder-card {
+			width: 100%;
 		}
 	}
 </style>
