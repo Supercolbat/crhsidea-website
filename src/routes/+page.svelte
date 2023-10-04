@@ -186,7 +186,7 @@
 			to create something innovative.
 		</p>
 
-		<img src="/assets/hackathon0.jpg" alt="Picture of TAMUHack 2023" />
+		<img src="/assets/hackathon0.webp" alt="Picture of TAMUHack 2023" />
 	</section>
 
 	<section class="section-center">
@@ -228,7 +228,7 @@
 			<details>
 				<summary>I don't know what a hackathon is</summary>
 				A hackathon is a programming event where teams of four people or less work to create an app in
-				a time constraint. These can range from 48 hours to a week. The main goal of hackathons are the
+				a time constraint. These can range from 24 hours to a week. The main goal of hackathons are the
 				viability and execution of an idea. Think of this as a startup competition. Also free food!
 			</details>
 
@@ -273,6 +273,10 @@
 	}
 
 	@media (width < 760px) {
+		header {
+			height: 90vh;
+		}
+
 		.header-body {
 			margin-right: var(--spacing--page-x) !important;
 		}
@@ -282,7 +286,7 @@
 		}
 	}
 
-	@media (width < 550px) {
+	@media (width < 550px) or (height < 550px) {
 		:root {
 			--font-xl: 4rem !important;
 			--font--scroller: 3rem !important;
@@ -445,7 +449,7 @@
 
 	.hackathons {
 		img {
-			width: 75%;
+			width: var(--size--max-width);
 			border-radius: 1rem;
 		}
 	}
