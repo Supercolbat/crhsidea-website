@@ -9,6 +9,10 @@
 
 <svelte:head>
 	<title>CS/IDEA — Go beyond CompSci</title>
+	<meta
+		name="description"
+		content="CS/IDEA helps students go beyond school curriculum and step into the world of software development."
+	/>
 </svelte:head>
 
 <!-- <Navbar /> -->
